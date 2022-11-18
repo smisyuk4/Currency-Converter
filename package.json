@@ -1,0 +1,13 @@
+{
+  "name": "currency-converter",
+  "source": "src/index.html",
+  "homepage": "https://smisyuk4.github.io/Currency-Converter",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build src/*.html --public-url /Currency-Converter/"
+  },
+  "devDependencies": {
+    "parcel": "^2.7.0"
+  }
+}

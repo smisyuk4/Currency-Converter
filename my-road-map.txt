@@ -1,0 +1,35 @@
+https://parceljs.org/getting-started/webapp/
+
+1. В пустой папке установил npm install --save-dev parcel
+
+2. Создал файл .gitignore и добавил в него node_modules/
+
+3. Создал папку srs и в ней файл index.html. Там поместил разметку стартовой страницы
+
+4. Указал точку входа в проект npx parcel src/index.html
+
+5. Создал в папке srs файл styles.css. Там поместил стили
+
+6. Создал в папке srs файл app.js. Там поместил скрипт
+
+7. В файле index.html в шапке подключил:
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="app.js"></script>
+
+8. В файле package.json написал:
+{
+  "name": "my-project",
+  "source": "src/index.html",
+  "homepage": "https://your_username.github.io/js-practice",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build src/*.html --public-url /js-practice/"
+  },
+  "devDependencies": {
+    "parcel": "^2.7.0"
+  }
+}
+
+9. Создал папку .github, в ней папку workflows и там уже файл deploy.yml
+ - туда скопировал скрипт формирвания живой страницы в github
