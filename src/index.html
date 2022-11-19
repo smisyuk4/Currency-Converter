@@ -11,49 +11,45 @@
 <body>
     <header>
         <div class="container">
-            <h1>Currency Converter App</h1>
-            <!-- <ul class="currency-list">
-                        <li class="currency-item">
-                            <p>USD: </p>
-                        </li>
-                        <li class="currency-item">
-                            <p>EUR: </p>
-                        </li>
-                    </ul> -->
-            <form class="currency-form">
-                <label class="from-value">
-                    <input type="number">
-                    <select name="currency" id="">
-                        <option value="">--Please choose an option--</option>
-                        <option value="uah">UAH</option>
-                        <option value="usd">USD</option>
-                        <option value="eur">EUR</option>
-                        <option value="nis">NIS</option>
-                    </select>
-                </label>
-            
-                <label class="to-value">
-                    <input type="number">
-                    <select name="currency" id="">
-                        <option value="">--Please choose an option--</option>
-                        <option value="uah">UAH</option>
-                        <option value="usd">USD</option>
-                        <option value="eur">EUR</option>
-                        <option value="nis">NIS</option>
-                    </select>
-                </label>
-            
-            
-                <!-- <button type="submit">Convert</button> -->
-            </form>
+            <ul class="currency-list">
+            </ul>
         </div>        
     </header>
 
     <main>
-        <!-- <div class="result-converter">
-            <b>from USD to UAH</b>
-            <p>77 USD = 580 UAH</p>
-        </div> -->
+        <div class="container">
+            <h1>Currency Converter</h1>
+
+            <form class="currency-form">
+                <label class="from-value">
+                    <p>FROM</p>
+                    <input name="fromQuantity" type="number">
+                    <select name="fromNameMoney" id="">
+                        <option value="">--Choose an option--</option>
+                        <option value="UAH">UAH</option>
+                        <!-- <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="ILS">ILS</option> -->
+                    </select>
+                </label>
+        
+                <label class="to-value">
+                    <p>TO</p>
+                    <input name="toQuantity" type="number">
+                    <select name="toNameMoney" id="">
+                        <option value="">--Choose an option--</option>
+                        <!-- <option value="UAH">UAH</option>
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="ILS">ILS</option> -->
+                    </select>
+                </label>
+        
+        
+                <button type="submit">Convert</button>
+                <button type="reset">Reset</button>
+            </form>
+        </div>
     </main>
 
     <footer></footer>
