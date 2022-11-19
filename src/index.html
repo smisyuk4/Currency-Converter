@@ -3,39 +3,57 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Currency Converter App</title>
+    <title>Currency Converter</title>
     <link rel="stylesheet" href="styles/styles.css" />
     <script type="module" src="scripts/app.js"></script>
 </head>
 
 <body>
     <header>
-        <h1>Currency Converter App</h1>
-        <ul class="currency-list">
-            <li class="currency-item">
-                <p>USD: </p>
-            </li>
-            <li class="currency-item">
-                <p>EUR: </p>
-            </li>
-        </ul>
-        <form>
-            <label>
-                <input type="text">
-            </label>
-
-            <select name="" id="">
-                <input type="text">
-            </select>
-            <button type="submit">Convert</button>
-        </form>
+        <div class="container">
+            <h1>Currency Converter App</h1>
+            <!-- <ul class="currency-list">
+                        <li class="currency-item">
+                            <p>USD: </p>
+                        </li>
+                        <li class="currency-item">
+                            <p>EUR: </p>
+                        </li>
+                    </ul> -->
+            <form class="currency-form">
+                <label class="from-value">
+                    <input type="number">
+                    <select name="currency" id="">
+                        <option value="">--Please choose an option--</option>
+                        <option value="uah">UAH</option>
+                        <option value="usd">USD</option>
+                        <option value="eur">EUR</option>
+                        <option value="nis">NIS</option>
+                    </select>
+                </label>
+            
+                <label class="to-value">
+                    <input type="number">
+                    <select name="currency" id="">
+                        <option value="">--Please choose an option--</option>
+                        <option value="uah">UAH</option>
+                        <option value="usd">USD</option>
+                        <option value="eur">EUR</option>
+                        <option value="nis">NIS</option>
+                    </select>
+                </label>
+            
+            
+                <!-- <button type="submit">Convert</button> -->
+            </form>
+        </div>        
     </header>
 
     <main>
-        <div class="result-converter">
+        <!-- <div class="result-converter">
             <b>from USD to UAH</b>
             <p>77 USD = 580 UAH</p>
-        </div>
+        </div> -->
     </main>
 
     <footer></footer>
