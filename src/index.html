@@ -11,6 +11,9 @@
 <body>
     <header>
         <div class="container">
+            <a class="bank" href="https://bank.gov.ua/" target="_blank" rel="noopener noreferer">
+                <img src="./image/logo.png" alt="national bank of ukraine" height="30">
+            </a>
             <ul class="currency-list">
             </ul>
         </div>        
@@ -24,24 +27,16 @@
                 <label class="from-value">
                     <p>FROM</p>
                     <input name="fromQuantity" type="number">
-                    <select name="fromNameMoney" id="">
+                    <select name="fromNameMoney" id="" required>
                         <option value="">--Choose an option--</option>
-                        <option value="UAH">UAH</option>
-                        <!-- <option value="USD">USD</option>
-                        <option value="EUR">EUR</option>
-                        <option value="ILS">ILS</option> -->
                     </select>
                 </label>
         
                 <label class="to-value">
                     <p>TO</p>
                     <input name="toQuantity" type="number">
-                    <select name="toNameMoney" id="">
+                    <select name="toNameMoney" id="" required>
                         <option value="">--Choose an option--</option>
-                        <!-- <option value="UAH">UAH</option>
-                        <option value="USD">USD</option>
-                        <option value="EUR">EUR</option>
-                        <option value="ILS">ILS</option> -->
                     </select>
                 </label>
         

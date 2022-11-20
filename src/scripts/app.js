@@ -11,9 +11,21 @@ const refs = {
 
 let money = {}
 
+const UAH = {    
+    cc: "UAH",
+    exchangedate: "21.11.2022",
+    r030: 980,
+    rate: 1,
+    txt: "Гривня"
+}
+
+console.log(UAH)
+
 refs.currencyForm.addEventListener('change', onInputValue)
 refs.currencyForm.addEventListener('submit', onClickBtnConvert)
 refs.resetBtn.addEventListener('click', onClickBtnReset)
+
+refs.inputFromValue.addEventListener('blur', onInputLostFocus)
 
 drawCurrency()
 
@@ -21,46 +33,34 @@ function onClickBtnConvert(event) {
     event.preventDefault()
     console.log(money)
     let { fromQuantity, fromNameMoney, toQuantity, toNameMoney } = money
-    let from, to
 
     fetchCurrency()
     .then(data => {
-            console.log(data)
-            
+        console.log(data)
 
-            data.map(name => {
-                const { cc, txt, rate } = name
-
-                if (fromNameMoney === 'UAH') {
-                    from = 1
-                } 
-                
-                if (cc === fromNameMoney) {
-                    from = rate
-                }    
-                
-                if (cc === toNameMoney) {
-                    to = rate
-                }   
-            })
+        data = [...data, UAH]
         
-        console.log(from)
-        console.log(to)
+        const fromMoney = data.find(country => country.cc === fromNameMoney)
+        console.log(fromMoney)
 
-        if (fromQuantity && fromNameMoney && toNameMoney) {
-            toQuantity = Number(fromQuantity) / to
+        const toMoney = data.find(country => country.cc === toNameMoney)
+        console.log(toMoney)
+        
+
+        if (fromQuantity) {
+            toQuantity = Number(fromQuantity) * fromMoney.rate / toMoney.rate
             console.log(toQuantity)
             refs.inputToValue.value = toQuantity
-            // refs.inputToValue.removeAttribute('disabled')
             return
         }
 
         if (toQuantity) {
-            fromQuantity = toQuantity * index
+            fromQuantity = Number(toQuantity) * toMoney.rate / fromMoney.rate
+            console.log(fromQuantity)
             refs.inputFromValue.value = fromQuantity
-            // refs.inputFromValue.removeAttribute('disabled')
-            return
         }
+            
+
         })
     .catch(error => {
         console.log(error)
@@ -75,14 +75,19 @@ function onInputValue(event) {
 
         if (key === 'fromQuantity' && value !== '') {
             refs.inputToValue.setAttribute('disabled', true)
-            console.log(key + 'iside from')
+            // console.log(key + 'iside from' + value)
         }
 
         if (key === 'toQuantity' && value !== '') {
             refs.inputFromValue.setAttribute('disabled', true)
-            console.log(key + 'iside to')
+            // console.log(key + 'iside to' + value)
         }
     })
+}
+
+function onInputLostFocus(event) {
+    event.target.classList.add('invalid')
+    // console.log()
 }
 
 function onClickBtnReset() {
@@ -93,21 +98,23 @@ function onClickBtnReset() {
 function drawCurrency() {
     fetchCurrency()
         .then(data => {
-            console.log(data)
+            // console.log(data)
+
+            data = [...data, UAH]
             let USD, EUR
 
             const money = data.map(name => {
-                if (name.cc === 'USD' && name.txt === 'Долар США') {
+                if (name.cc === 'USD') {
                     USD = name.rate
                 }
 
-                if (name.cc === 'EUR' && name.txt === 'Євро') {
+                if (name.cc === 'EUR') {
                     EUR = name.rate
                 }        
                 return name
             })
 
-            console.log(money)
+            // console.log(money)
 
             const markupCurrencyToday = currencyToday(USD, EUR)
             refs.currencyList.insertAdjacentHTML('beforeend', markupCurrencyToday)
@@ -116,13 +123,16 @@ function drawCurrency() {
                 return addOptionToSelect(item.cc, item.txt)
             }).join('')
 
+            //add options to form
+            refs.selectFromValue.insertAdjacentHTML('beforeend', markupSelect)
             refs.selectToValue.insertAdjacentHTML('beforeend', markupSelect)
         })
     .catch(error => {
         console.log(error)
+        const msg = '<li>Sorry not data from server</li>'
+        refs.currencyList.insertAdjacentHTML('beforeend', msg)
     })
 }
-
 
 function fetchCurrency() {
     const URL = 'https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json'
@@ -146,7 +156,6 @@ function currencyToday(USD, EUR) {
                 <b>1 EUR = </b>${EUR} UAH
             </li>`
 }
-
 
 function addOptionToSelect(nameMoney, desc) {
     return `<option value=${nameMoney}>${nameMoney} - ${desc}</option> `
