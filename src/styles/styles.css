@@ -9,7 +9,7 @@ h1, ul {
     margin: 0;
 }
 
-header {
+.header {
     padding: 10px 0;
 }
 
@@ -27,23 +27,18 @@ header {
     height: 20px;
 }
 
-main {
+.main {
     padding: 10px 0;
 }
 
-h1 {
+.title {
     margin-bottom: 10px;
     color: hotpink;
     font-family: cursive;    
 }
 
 .currency-form {
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px; */
-
-    width: 300px;
+    width: 500px;
     margin: 0 auto;
     padding: 10px;
     background-color: rgba(255, 105, 180, 0.39);
@@ -66,16 +61,16 @@ h1 {
 }
 
 .currency-form select {
-    width: 150px;
+    /* width: 150px; */
 }
 
 .currency-form select:focus {
     width: auto;
 }
 
-/* [name="fromQuantity"].invalid {
+[data="empty"]{
     border-color: rgb(255, 0, 0);
-} */
+}
 
 /* .subscribe-form__input::placeholder {
     font-weight: 400;

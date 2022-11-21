@@ -9,5 +9,8 @@
   },
   "devDependencies": {
     "parcel": "^2.7.0"
+  },
+  "dependencies": {
+    "notiflix": "^3.2.5"
   }
 }
