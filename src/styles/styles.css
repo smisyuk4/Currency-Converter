@@ -1,3 +1,18 @@
+.night-theme {
+    --main-color: rgba(104, 17, 60, 0.986);
+    --border-color: rgba(0, 0, 0);
+    --txt-color: rgb(255, 255, 255);
+    --bg-image: url(/src/image/bg-night-cat.jpg);
+}
+
+.light-theme{
+    --main-color: rgba(211, 52, 131, 0.986);
+    --border-color: rgba(228, 130, 179, 0.986);
+    --txt-color: rgba(0, 0, 0);
+    --bg-image: url(/src/image/bg-light-cat.jpg)
+}
+
+
 .container{
     margin: 0 auto;
     padding: 0 15px;
@@ -7,6 +22,13 @@
 h1, ul {
     padding: 0;
     margin: 0;
+}
+
+body {
+    background-image: var(--bg-image);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-position: center; */
 }
 
 .header {
@@ -23,7 +45,7 @@ h1, ul {
     display: flex;
     gap: 25px;
     justify-content: center;
-
+    color: var(--txt-color);
     height: 20px;
 }
 
@@ -33,7 +55,7 @@ h1, ul {
 
 .title {
     margin-bottom: 10px;
-    color: hotpink;
+    color: var(--txt-color);
     font-family: cursive;    
 }
 
@@ -41,9 +63,13 @@ h1, ul {
     width: 500px;
     margin: 0 auto;
     padding: 10px;
-    background-color: rgba(255, 105, 180, 0.39);
-    border: 2px solid hotpink;
+    background-color: var(--main-color);
+    border: 2px solid var(--border-color);
     border-radius: 20px;
+}
+
+.currency-form p {
+    color: var(--txt-color);
 }
 
 .currency-form input {
@@ -51,7 +77,7 @@ h1, ul {
 }
 
 .currency-form input:focus-visible {
-    border-color: hotpink;
+    border-color: var(--border-color);
 }
 
 .currency-form label {
@@ -79,3 +105,25 @@ h1, ul {
     letter-spacing: 0.03em;
     color: rgba(255, 255, 255, 0.6);
 } */
+
+
+/* color theme button */
+.btn-color-theme{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;    
+    box-shadow: 5px 5px rgb(187, 135, 135);
+}
+
+.btn-color-theme:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+[hide] {
+    display: none;    
+}
+

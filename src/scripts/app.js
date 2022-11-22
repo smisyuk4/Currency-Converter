@@ -1,18 +1,14 @@
+import { refs } from './refs';
+import fetchCurrency from './fetchCurrency';
+import './color-theme'
+
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import 'notiflix/dist/notiflix-3.2.5.min.css'
 
-import fetchCurrency from './fetchCurrency';
 
-const refs = {
-    currencyList: document.querySelector('.currency-list'),
-    currencyForm: document.querySelector('.currency-form'),
-    inputFromValue: document.querySelector('[name="fromQuantity"]'),
-    inputToValue: document.querySelector('[name="toQuantity"]'),
-    selectFromValue: document.querySelector('[name="fromNameMoney"]'),
-    selectToValue: document.querySelector('[name="toNameMoney"]'),
-    convertBtn: document.querySelectorAll('.currency-form button')[0],
-    resetBtn: document.querySelectorAll('.currency-form button')[1],
-}
+
+
+
 
 let money = {}
 
