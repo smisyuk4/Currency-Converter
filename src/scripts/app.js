@@ -1,4 +1,5 @@
 import { refs } from './refs';
+import { translate } from './translate'
 import fetchCurrency from './fetchCurrency';
 import './color-theme'
 
@@ -141,3 +142,37 @@ function addOptionToSelect(money) {
     refs.selectFromValue.insertAdjacentHTML('beforeend', markupSelect)
     refs.selectToValue.insertAdjacentHTML('beforeend', markupSelect)
 }
+
+// ********* translate site
+const allLang = ['ua', 'eng', 'fr']
+
+refs.selectLang.addEventListener('change', onClickSelectLang)
+
+function onClickSelectLang() {
+    const lang = refs.selectLang.value
+    console.log(lang)
+
+    location.href = `${window.location.pathname}#${lang}`
+    console.log(location.href)
+
+    // location.reload()
+
+    let hash = location.hash
+    hash = hash.substring(1)
+    console.log(hash)
+    console.log(refs.title.textContent)
+
+    for (let nameClass in translate) {
+        const element = document.querySelector(`.${nameClass}`)
+            
+        if (element) {
+            element.innerHTML = translate[nameClass][hash]
+        }
+        // console.log(translate.contain(nameClass))
+        // if (element === undefined) {
+
+        //     element.innerHTML = translate[nameClass]['ua']
+        // }
+    }
+}
+

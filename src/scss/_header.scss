@@ -15,3 +15,20 @@
     color: var(--txt-color);
     height: 20px;
 }
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.change-lang {
+    background-color: rgb(240, 240, 240);
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 5px 5px rgb(187, 135, 135);
+
+    &:hover {
+        background-color: rgb(255, 255, 255);
+    }
+}

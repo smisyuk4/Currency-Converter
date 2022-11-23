@@ -13,4 +13,9 @@ export const refs = {
     buttonColorTheme: document.querySelector('.btn-color-theme'),
     iconNight: document.querySelector('.icon-night'),
     iconLight: document.querySelector('.icon-light'),
+    //lang
+    selectLang: document.querySelector('.change-lang'),
+
+    //test
+    title: document.querySelector('.title'),
 }
