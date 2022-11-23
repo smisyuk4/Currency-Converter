@@ -1,0 +1,17 @@
+.header {
+    padding: 10px 0;
+}
+
+.bank {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.currency-list {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    color: var(--txt-color);
+    height: 20px;
+}

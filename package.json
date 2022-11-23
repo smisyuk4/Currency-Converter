@@ -8,9 +8,11 @@
     "build": "parcel build src/*.html --public-url /Currency-Converter/"
   },
   "devDependencies": {
+    "@parcel/transformer-sass": "^2.7.0",
     "parcel": "^2.7.0"
   },
   "dependencies": {
+    "lodash.debounce": "^4.0.8",
     "notiflix": "^3.2.5"
   }
 }

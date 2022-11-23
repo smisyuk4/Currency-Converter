@@ -1,0 +1,13 @@
+.night-theme {
+    --main-color: rgba(104, 17, 60, 0.986);
+    --border-color: rgba(0, 0, 0);
+    --txt-color: rgb(255, 255, 255);
+    --bg-image: url(/src/image/bg-night-cat.jpg);
+}
+
+.light-theme {
+    --main-color: rgba(211, 52, 131, 0.986);
+    --border-color: rgba(228, 130, 179, 0.986);
+    --txt-color: rgba(0, 0, 0);
+    --bg-image: url(/src/image/bg-light-cat.jpg)
+}

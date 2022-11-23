@@ -5,12 +5,8 @@ import './color-theme'
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import 'notiflix/dist/notiflix-3.2.5.min.css'
 
-
-
-
-
-
-let money = {}
+const debounce = require('lodash.debounce'); 
+const DELAY = 300
 
 const UAH = {    
     cc: "UAH",
@@ -20,7 +16,8 @@ const UAH = {
     txt: "Гривня"
 }
 
-refs.currencyForm.addEventListener('change', onInputValue)
+refs.inputFromValue.addEventListener('input', debounce(checkInputValues, DELAY))
+refs.inputToValue.addEventListener('input', debounce(checkInputValues, DELAY))
 refs.currencyForm.addEventListener('submit', onClickBtnConvert)
 refs.resetBtn.addEventListener('click', onClickBtnReset)
 
@@ -29,6 +26,12 @@ drawCurrency()
 function onClickBtnConvert(event) {
     event.preventDefault()
     checkInputValues()
+
+    const money = {}
+    const formData = new FormData(refs.currencyForm)
+    formData.forEach((value, key) => {
+        money[key] = value
+    })
 
     let { fromQuantity, fromNameMoney, toQuantity, toNameMoney } = money
 
@@ -56,23 +59,7 @@ function onClickBtnConvert(event) {
     })
 }
 
-function onInputValue(event) {
-    const formData = new FormData(refs.currencyForm)
-
-    formData.forEach((value, key) => {
-        money[key] = value
-
-        if (key === 'fromQuantity' && value !== '') {
-            refs.inputToValue.setAttribute('disabled', true)
-        }
-
-        if (key === 'toQuantity' && value !== '') {
-            refs.inputFromValue.setAttribute('disabled', true)
-        }
-    })
-}
-
-function checkInputValues() {
+function checkInputValues(event) {
     const isEmptyInputFrom = refs.inputFromValue.value === ''
     const isEmptyInputTo = refs.inputToValue.value === ''
 
@@ -90,6 +77,14 @@ function checkInputValues() {
         !isEmptyInputTo && isRedInputTo) {
         refs.inputFromValue.removeAttribute('data')
         refs.inputToValue.removeAttribute('data')
+    }
+
+    if (!isEmptyInputFrom) {
+        refs.inputToValue.setAttribute('disabled', true)
+    }
+
+    if (!isEmptyInputTo) {
+        refs.inputFromValue.setAttribute('disabled', true)
     }
 }
 
