@@ -11,3 +11,23 @@
     --txt-color: rgba(0, 0, 0);
     --bg-image: url(/src/image/bg-light-cat.jpg)
 }
+
+/* switcher */
+.btn-color-theme {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    box-shadow: 5px 5px rgb(187, 135, 135);
+}
+
+.btn-color-theme:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+[hide] {
+    opacity: 0;
+}
